@@ -1,7 +1,7 @@
 const config = {
     DBConnection: {
-        local: 'mongodb://localhost:27017/[DBName]',
-        remote: 'mongodb://139.59.170.104:27017/[DBName]',
+        //local: 'mongodb://localhost:27017/Todo',
+        remote: 'mongodb://hmtri1011:Hoangminhtri1011@ds135690.mlab.com:35690/to-do',
     },
     API_HOST: 'localhost',
     API_PORT: 3030,

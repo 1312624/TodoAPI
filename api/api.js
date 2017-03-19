@@ -8,16 +8,14 @@ const app = express();
 
 app.use( require('./middlewares/cors') );
 
-const procEnv = process.env.NODE_ENV;
-
-if (procEnv === 'development') {
-    //show log with morgan or something...
-}
-
+// parse application/json
 app.use(bodyParser.json());
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use('/api', route);
 
-const dbConnection = (process.env.remote || process.argv.indexOf('remote') !== -1) ? config.DBConnection.remote : config.DBConnection.local;
+const dbConnection = config.DBConnection.remote;
 mongoose.Promise = global.Promise;
 
 mongoose.connect(dbConnection)
